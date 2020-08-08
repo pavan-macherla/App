@@ -16,11 +16,12 @@ pipeline {
           rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
         }
       }
-      stage('Publish build info') {
-        steps {
-          script {
-            server.publishBuildInfo buildInfo
-          }
-        }
-      }
+    }
+    stage('Publish build info') {
+       steps {
+         script {
+           server.publishBuildInfo buildInfo
+         }
+       }
+    }
   }
